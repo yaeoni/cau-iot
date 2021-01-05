@@ -10,7 +10,7 @@
 - 보컬
 
 ## 통신 과정
-<img width="288" alt="image" src="https://user-images.githubusercontent.com/63635886/103614137-44d77d00-4f6b-11eb-8a62-b02552f57b78.png">
+<img width="824" alt="image" src="https://user-images.githubusercontent.com/63635886/103614408-dcd56680-4f6b-11eb-968a-9f6b13881079.png">
 - 피아노가 멜로디를 녹음해서 신디사이저와 드럼 파트에게 넘기고 그 위에 각자 악기에 맞는 멜로디를 녹음해서 보컬에게 전달하는 식
 - socket 통신과 scp를 사용하여 원격 통신을 진행하였다.
 
