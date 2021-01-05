@@ -1,0 +1,63 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x3F, 16,3);
+void setup(){
+  
+lcd.init();
+lcd.setCursor(2,0);
+lcd.backlight();
+lcd.print("WELCOME !!!");
+ Serial.begin(9600);
+}
+
+void do_lcd(){
+    Serial.flush();  
+  
+    lcd.clear();
+    lcd.setCursor(2,0);
+    while (Serial.available() > 0) {
+      // display each character to the LCD
+      lcd.write(Serial.read());
+    }
+    Serial.flush();
+}
+void do_lcd2(){
+    Serial.flush();  
+  
+    lcd.clear();
+    lcd.setCursor(2,0);
+    while (Serial.available() > 0) {
+      // display each character to the LCD
+      byte check =Serial.read();
+      if (check == 57)
+            break;
+      lcd.write(check);
+      
+    }
+ 
+    lcd.setCursor(2,1);
+       while (Serial.available() > 0) {
+      // display each character to the LCD
+      lcd.write(Serial.read());
+    }
+    Serial.flush();
+}
+void loop(){
+   if (Serial.available()) {
+    // wait a bit for the entire message to arrive
+    delay(100);
+    char idx = Serial.read();
+    if(idx=='1'){
+        do_lcd2();
+      // do_buz();
+    }
+    else if(idx=='2'){
+    // clear the screen
+        do_lcd();    
+    
+    }
+  
+  }
+ 
+}
